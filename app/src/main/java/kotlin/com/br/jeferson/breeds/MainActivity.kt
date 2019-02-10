@@ -1,5 +1,6 @@
 package kotlin.com.br.jeferson.breeds
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +10,7 @@ import kotlin.com.br.jeferson.breeds.connection.BreedRepository
 import kotlin.com.br.jeferson.breeds.connection.DogCeoApi
 import kotlin.com.br.jeferson.breeds.connection.DogCeoDataSource
 import kotlin.com.br.jeferson.breeds.view_model.BreedsViewModel
+import kotlin.com.br.jeferson.breeds.view_model.BreedsViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,12 +24,15 @@ class MainActivity : AppCompatActivity() {
         val retrofit = Retrofit.Builder().baseUrl("http://dog.ceo/api/").addConverterFactory(GsonConverterFactory.create()).build()
         val dogCeoDataSource = DogCeoDataSource(retrofit.create(DogCeoApi::class.java))
         val repository = BreedRepository(dogCeoDataSource)
-        return BreedsViewModel(repository, applicationContext)
+
+        val factory = BreedsViewModelFactory(repository, activity?.application!!)
+
+        return ViewModelProviders.of(this, factory).get(BreedsViewModel::class.java)
     }
 
 
-    fun createFragment() : BreedFragment {
-        return BreedFragment.newInstance(createViewModel())
+    fun createFragment() : BreedsFragment {
+        return BreedsFragment.newInstance(createViewModel())
     }
 
     fun AppCompatActivity.addFragmentTo(containerId: Int, fragment: Fragment, tag: String = "") {

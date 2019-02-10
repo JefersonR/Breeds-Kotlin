@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Breeds</string>
+    <string name="breed_empty">Nenhuma raça encontrada!</string>
+    <string name="breed_failed">Opa, tivemos uma falha ao buscar os dados.</string>
 </resources>
