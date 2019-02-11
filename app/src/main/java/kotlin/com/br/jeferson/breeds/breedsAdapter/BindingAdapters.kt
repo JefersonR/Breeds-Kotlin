@@ -4,8 +4,6 @@ import android.databinding.BindingAdapter
 import android.support.v7.widget.RecyclerView
 
 class BindingAdapters {
-
-
     companion object {
         @BindingAdapter("items")
         @JvmStatic

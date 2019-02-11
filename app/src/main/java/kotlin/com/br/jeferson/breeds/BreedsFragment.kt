@@ -35,7 +35,7 @@ class BreedsFragment : Fragment() {
         binding.recyclerView.adapter = BreedsAdapter(emptyList())
         binding.recyclerView.layoutManager = LinearLayoutManager(activity)
 
-        
+
         return binding.root
     }
 
