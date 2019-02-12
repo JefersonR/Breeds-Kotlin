@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import kt.com.br.jeferson.breeds.breedsAdapter.BreedsAdapter
 import kt.com.br.jeferson.breeds.databinding.BreedFragmentBinding
+import kt.com.br.jeferson.breeds.view_model.BreedsItemViewModel
 import kt.com.br.jeferson.breeds.view_model.BreedsViewModel
 
 
@@ -25,16 +26,14 @@ class BreedFragment : Fragment() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        viewModel.load()
-    }
-
     override fun onCreateView(@NonNull inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding : BreedFragmentBinding = BreedFragmentBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
-        binding.recyclerView.adapter = BreedsAdapter(emptyList())
+        binding.recyclerView.adapter = BreedsAdapter(viewModel.load())
+//        binding.recyclerView.adapter = BreedsAdapter(listOf(BreedsItemViewModel("abc"), BreedsItemViewModel("abc"),BreedsItemViewModel("abc")))
         binding.recyclerView.layoutManager = LinearLayoutManager(activity)
         return binding.root
     }
+
+
 }

@@ -1,23 +1,24 @@
 package kt.com.br.jeferson.breeds.connection
 
+import kt.com.br.jeferson.breeds.view_model.BreedsItemViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kt.com.br.jeferson.breeds.model.Breed
+
 
 class DogCeoDataSource(val dogCeoApi: DogCeoApi) :
     BreedDataSource {
 
 
-    override fun listAll(success: (List<Breed>) -> Unit, failure: () -> Unit) {
+    override fun listAll(success: (List<BreedsItemViewModel>) -> Unit, failure: () -> Unit) {
         val call = dogCeoApi.listBreeds()
         call.enqueue(object : Callback<DogCeoResponse> {
 
             override fun onResponse(call: Call<DogCeoResponse>, response: Response<DogCeoResponse>) {
                 if (response.isSuccessful) {
-                    val breeds = mutableListOf<Breed>()
+                    val breeds = mutableListOf<BreedsItemViewModel>()
                     response.body()?.message?.forEach {
-                        breeds.add(Breed(it))
+                        breeds.add(BreedsItemViewModel(it))
                     }
                     success(breeds)
                 } else {

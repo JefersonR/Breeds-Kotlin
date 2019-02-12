@@ -8,16 +8,16 @@ import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import kt.com.br.jeferson.breeds.R
 import kt.com.br.jeferson.breeds.connection.BreedDataSource
-import kt.com.br.jeferson.breeds.model.Breed
+
 
 class BreedsViewModel(val repository: BreedDataSource, val context: Context)  {
 
 
-    val breeds = ObservableArrayList<Breed>()
+    val breeds = ObservableArrayList<BreedsItemViewModel>()
     val loadingVisibility = ObservableBoolean(false)
     val message = ObservableField<String>()
 
-    fun load() {
+    fun load() : ObservableArrayList<BreedsItemViewModel>{
         loadingVisibility.set(true)
         message.set("")
         repository.listAll({ items ->
@@ -31,6 +31,8 @@ class BreedsViewModel(val repository: BreedDataSource, val context: Context)  {
             message.set(context.getString(R.string.breed_failed))
             loadingVisibility.set(false)
         })
+
+        return breeds
     }
 
 
