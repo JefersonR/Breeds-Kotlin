@@ -10,26 +10,28 @@ import kotlin.com.br.jeferson.breeds.R
 import kotlin.com.br.jeferson.breeds.connection.BreedDataSource
 import kotlin.com.br.jeferson.breeds.model.Breed
 
-class BreedsViewModel (val repository: BreedDataSource, application: Application) : AndroidViewModel(application),
-    LifecycleObserver {
-    val breeds = MutableLiveData<List<Breed>>().apply { value = emptyList() }
-    val loadingVisibility = MutableLiveData<Boolean>().apply { value = false }
-    val message = MutableLiveData<String>().apply { value = "" }
+class BreedsViewModel(private val repository: BreedDataSource, private val application: Application)  : ViewModel() {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    var breeds = MutableLiveData<MutableList<Breed>>()
+    val loadingVisibility = ObservableBoolean(false)
+    val message = ObservableField<String>()
+
     fun load() {
-        loadingVisibility.postValue(true)
-        message.postValue("")
+        loadingVisibility.set(true)
+        message.set("")
         repository.listAll({ items ->
-            breeds.postValue(items)
+            breeds.postValue(items.toMutableList())
             if (items.isEmpty()) {
-                message.postValue(getApplication<Application>().getString(R.string.breed_empty))
+                message.set(application.getString(R.string.breed_empty))
             }
-            loadingVisibility.postValue(false)
+            loadingVisibility.set(false)
         }, {
-            message.postValue(getApplication<Application>().getString(R.string.breed_failed))
-            loadingVisibility.postValue(false)
+            message.set(application.getString(R.string.breed_failed))
+            loadingVisibility.set(false)
         })
     }
+
+
+
 }
 

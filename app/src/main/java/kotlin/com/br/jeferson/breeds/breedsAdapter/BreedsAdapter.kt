@@ -1,17 +1,17 @@
 package kotlin.com.br.jeferson.breeds.breedsAdapter
 
+import android.databinding.DataBindingUtil
 import kotlin.com.br.jeferson.breeds.model.Breed
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
 
-
 class BreedsAdapter(var items : List<Breed>) : RecyclerView.Adapter<BreedsAdapter.ViewHolder>(), AdapterItemsContract{
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding: BreedItemBinding = BreedItemBinding.inflate(inflater, parent, false)
+        val binding: BreedsItemBinding = BreedsItemBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 
@@ -28,7 +28,7 @@ class BreedsAdapter(var items : List<Breed>) : RecyclerView.Adapter<BreedsAdapte
         holder.bind(items[position])
     }
 
-    class ViewHolder(val binding: BreedItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: BreedsItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(breed: Breed) {
             binding.breed = breed
