@@ -10,9 +10,10 @@ import kotlin.com.br.jeferson.breeds.R
 import kotlin.com.br.jeferson.breeds.connection.BreedDataSource
 import kotlin.com.br.jeferson.breeds.model.Breed
 
-class BreedsViewModel(private val repository: BreedDataSource, private val application: Application)  : ViewModel() {
+class BreedsViewModel(val repository: BreedDataSource, val context: Context)  {
 
-    var breeds = MutableLiveData<MutableList<Breed>>()
+
+    val breeds = ObservableArrayList<Breed>()
     val loadingVisibility = ObservableBoolean(false)
     val message = ObservableField<String>()
 
@@ -20,17 +21,17 @@ class BreedsViewModel(private val repository: BreedDataSource, private val appli
         loadingVisibility.set(true)
         message.set("")
         repository.listAll({ items ->
-            breeds.postValue(items.toMutableList())
+            breeds.clear()
+            breeds.addAll(items)
             if (items.isEmpty()) {
-                message.set(application.getString(R.string.breed_empty))
+                message.set(context.getString(R.string.breed_empty))
             }
             loadingVisibility.set(false)
         }, {
-            message.set(application.getString(R.string.breed_failed))
+            message.set(context.getString(R.string.breed_failed))
             loadingVisibility.set(false)
         })
     }
-
 
 
 }
