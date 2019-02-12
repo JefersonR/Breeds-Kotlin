@@ -1,4 +1,4 @@
-package kotlin.com.br.jeferson.breeds
+package kt.com.br.jeferson.breeds
 
 import android.os.Bundle
 import android.support.annotation.NonNull
@@ -7,9 +7,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlin.com.br.jeferson.breeds.breedsAdapter.BreedsAdapter
-import kotlin.com.br.jeferson.breeds.databinding.BreedFragmentBinding
-import kotlin.com.br.jeferson.breeds.view_model.BreedsViewModel
+import kt.com.br.jeferson.breeds.breedsAdapter.BreedsAdapter
+import kt.com.br.jeferson.breeds.databinding.BreedFragmentBinding
+import kt.com.br.jeferson.breeds.view_model.BreedsViewModel
 
 
 class BreedFragment : Fragment() {

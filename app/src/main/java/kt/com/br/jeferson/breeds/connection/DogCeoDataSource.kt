@@ -1,11 +1,12 @@
-package kotlin.com.br.jeferson.breeds.connection
+package kt.com.br.jeferson.breeds.connection
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.com.br.jeferson.breeds.model.Breed
+import kt.com.br.jeferson.breeds.model.Breed
 
-class DogCeoDataSource(val dogCeoApi: DogCeoApi) : BreedDataSource {
+class DogCeoDataSource(val dogCeoApi: DogCeoApi) :
+    BreedDataSource {
 
 
     override fun listAll(success: (List<Breed>) -> Unit, failure: () -> Unit) {

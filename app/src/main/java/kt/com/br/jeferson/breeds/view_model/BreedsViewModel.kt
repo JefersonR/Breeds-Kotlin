@@ -1,4 +1,4 @@
-package kotlin.com.br.jeferson.breeds.view_model
+package kt.com.br.jeferson.breeds.view_model
 
 import android.app.Application
 import android.arch.lifecycle.*
@@ -6,9 +6,9 @@ import android.content.Context
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
-import kotlin.com.br.jeferson.breeds.R
-import kotlin.com.br.jeferson.breeds.connection.BreedDataSource
-import kotlin.com.br.jeferson.breeds.model.Breed
+import kt.com.br.jeferson.breeds.R
+import kt.com.br.jeferson.breeds.connection.BreedDataSource
+import kt.com.br.jeferson.breeds.model.Breed
 
 class BreedsViewModel(val repository: BreedDataSource, val context: Context)  {
 

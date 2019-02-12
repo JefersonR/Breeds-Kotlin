@@ -5,7 +5,7 @@
     <data>
         <variable
                 name="viewModel"
-                type="kotlin.com.br.jeferson.breeds.view_model.BreedsViewModel" />
+                type="kt.com.br.jeferson.breeds.view_model.BreedsViewModel" />
 
         <import type="android.view.View" />
     </data>
@@ -18,7 +18,7 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:items="@{viewModel.breeds}" />
+                />
 
         <ProgressBar
                 android:layout_width="70dp"

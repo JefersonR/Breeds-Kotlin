@@ -1,4 +1,4 @@
-package kotlin.com.br.jeferson.breeds.breedsAdapter
+package kt.com.br.jeferson.breeds.breedsAdapter
 
 interface AdapterItemsContract {
 

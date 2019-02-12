@@ -1,6 +1,6 @@
-package kotlin.com.br.jeferson.breeds.connection
+package kt.com.br.jeferson.breeds.connection
 
-import kotlin.com.br.jeferson.breeds.model.Breed
+import kt.com.br.jeferson.breeds.model.Breed
 
 interface BreedDataSource {
 

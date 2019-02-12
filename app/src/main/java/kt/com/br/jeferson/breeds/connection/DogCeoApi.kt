@@ -1,4 +1,4 @@
-package kotlin.com.br.jeferson.breeds.connection
+package kt.com.br.jeferson.breeds.connection
 
 import retrofit2.Call
 import retrofit2.http.GET

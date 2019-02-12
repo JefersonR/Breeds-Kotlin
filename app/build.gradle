@@ -9,7 +9,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "kotlin.com.br.jeferson.breeds"
+        applicationId "kt.com.br.jeferson.breeds"
         minSdkVersion 18
         targetSdkVersion 27
         versionCode 1

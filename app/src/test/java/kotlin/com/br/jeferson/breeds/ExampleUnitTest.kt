@@ -1,4 +1,4 @@
-package kotlin.com.br.jeferson.breeds
+package kt.com.br.jeferson.breeds
 
 import org.junit.Test
 

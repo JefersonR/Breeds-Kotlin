@@ -1,4 +1,4 @@
-package kotlin.com.br.jeferson.breeds
+package kt.com.br.jeferson.breeds
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("kotlin.com.br.jeferson.breeds", appContext.packageName)
+        assertEquals("kt.com.br.jeferson.breeds", appContext.packageName)
     }
 }
