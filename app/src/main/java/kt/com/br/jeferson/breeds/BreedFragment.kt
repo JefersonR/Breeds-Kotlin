@@ -13,8 +13,6 @@ import kt.com.br.jeferson.breeds.breedsAdapter.BreedsAdapter
 import kt.com.br.jeferson.breeds.databinding.BreedFragmentBinding
 import kt.com.br.jeferson.breeds.view_model.BreedsItemViewModel
 import kt.com.br.jeferson.breeds.view_model.BreedsViewModel
-import java.util.*
-
 
 class BreedFragment : Fragment() {
 
@@ -39,7 +37,7 @@ class BreedFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(activity)
 
         viewModel.loadBreeads().observe(this,
-            android.arch.lifecycle.Observer<List<BreedsItemViewModel?>>{t ->
+            android.arch.lifecycle.Observer<List<BreedsItemViewModel>>{t ->
                 binding.recyclerView.adapter = BreedsAdapter(t as List<BreedsItemViewModel>)
                 binding.recyclerView.adapter.notifyDataSetChanged()
 

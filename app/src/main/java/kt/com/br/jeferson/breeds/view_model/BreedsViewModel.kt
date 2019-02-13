@@ -19,10 +19,10 @@ class BreedsViewModel(val repository: BreedDataSource, val context: Context)  {
     val loadingVisibility = ObservableBoolean(false)
     val message = ObservableField<String>()
 
-    val breeds = MutableLiveData<List<BreedsItemViewModel?>>()
+    val breeds = MutableLiveData<List<BreedsItemViewModel>>()
 
 
-     fun loadBreeads() : LiveData<List<BreedsItemViewModel?>>{
+     fun loadBreeads() : LiveData<List<BreedsItemViewModel>>{
         loadingVisibility.set(true)
         message.set("")
         repository.listAll({ items ->
